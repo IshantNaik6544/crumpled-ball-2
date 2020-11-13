@@ -19,12 +19,15 @@ function setup() {
 paper= new Paper(100,500,20);
 ground=Bodies.rectangle(400,600,800,20,{isStatic:true})
 World.add(world,ground)
-db1=new Dustbin(902,505,10,120)
-db2=new Dustbin(962,565,130,10)
-db3=new Dustbin(1024,505,10,120)
+db1=new Dustbin(400,550,20,100)
+db2=new Dustbin(500,580,200,20)
+db3=new Dustbin(600,550,20,100)
 	Engine.run(engine);
   
 }
+
+
+
 
 
 function draw() {
@@ -36,17 +39,19 @@ function draw() {
  db2.display() 
  db3.display() 
 
-  drawSprites();
+  drawSprites(); 
  
 }
-function KeyPressed(){
-if(KeyCode === UP_ARROW){
+function keyPressed(){
 
-  Matter.Body.applyForce(crumpledpaper.body,crumpledpaper.body.position)
-}
-
-
-
-}
+  if(keyCode === UP_ARROW){                                                          
+  
+  
+  
+  Matter.Body.applyForce(paper.body,paper.body.position,{x:85,y:-85})
+  
+  
+  }
+  }
 
 
